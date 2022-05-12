@@ -1,0 +1,60 @@
+@mixin header() {
+    &-Top {
+        display: block;
+        width: 100%;
+        height: 70px;
+        &-Left {
+            float: left;
+            span {
+                span {
+                    span {
+                        input {
+                            background: #EDE6E6;
+                            height: 35px;
+                            font-size: 20px;
+                        }
+                        span {
+                            font-size: 25px;
+                        }
+                    }
+                    .ant-input-group-addon {
+                        background: #F9F6F4;
+                    }
+                }
+            }
+            .ant-input-search .ant-input-group .ant-input-affix-wrapper:not(:last-child) {
+                background: #EDE6E6;
+                border-radius: 12px;
+            }
+        }
+        &-Right {
+            text-align: end;
+            padding-right: 32px;
+        }
+    }
+}
+
+//search 
+@mixin Search() {
+    span {
+        span {
+            span {
+                input {
+                    background: #EDE6E6;
+                    height: 35px;
+                    font-size: 20px;
+                }
+                span {
+                    font-size: 25px;
+                }
+            }
+            .ant-input-group-addon {
+                background: #ffffff !important;
+            }
+        }
+    }
+    .ant-input-search .ant-input-group .ant-input-affix-wrapper:not(:last-child) {
+        background: #EDE6E6;
+        border-radius: 12px;
+    }
+}

@@ -1,24 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
+import DoiSoatVe from './Components/Pages/DoiSoatVe/DoiSoatVe';
+import GoiDichVu from './Components/Pages/GoiDichVu/GoiDichVu';
+import QuanLyVe from './Components/Pages/QuanLyVe/QuanLyVe';
+import TrangChu from './Components/Pages/TrangChu/TrangChu';
+import Sidebar from './Components/Template/MenuLeft/Sidebar';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" >
+        <BrowserRouter>
+            <Routes>
+              <Route path='/' element={< Sidebar />}>
+                    <Route path='/' element={< TrangChu />} />
+                    <Route path='/quanlyve' element={< QuanLyVe />} />
+                    <Route path='/goidichvu' element={< GoiDichVu />} />
+                    <Route path='/doisoatve' element={< DoiSoatVe />} />
+              </Route>
+            </Routes>
+        </BrowserRouter>
     </div>
   );
 }

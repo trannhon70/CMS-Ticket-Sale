@@ -1,0 +1,55 @@
+.Layout__Sidebar {
+    width: 252px;
+    height: 572px;
+    padding: 17px 33px;
+    &-logo {
+        margin-bottom: 59px;
+    }
+    ul.ant-menu {
+        background: #F9F6F4;
+        &.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+            background: #FFB800;
+            border-radius: 8px;
+            padding: 15px 16px 15px 24px;
+            span {
+                svg {
+                    color: white !important;
+                }
+                a {
+                    color: white;
+                }
+            }
+        }
+        &.ant-menu-dark .ant-menu-item,
+        .ant-menu-dark .ant-menu-item-group-title,
+        .ant-menu-dark .ant-menu-item>a,
+        .ant-menu-dark .ant-menu-item>span>a {
+            color: #1E0D03;
+        }
+        &.ant-menu-dark {
+            span {
+                svg {
+                    color: #1E0D03 !important;
+                }
+                a {
+                    font-family: 'Montserrat';
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 18px;
+                    line-height: 26px;
+                    /* identical to box height, or 144% */
+                    /* Text */
+                    color: #1E0D03;
+                }
+            }
+        }
+        &.ant-menu-sub {
+            background: #F9F6F4;
+            div {
+                span {
+                    color: #1E0D03;
+                }
+            }
+        }
+    }
+}
