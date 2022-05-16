@@ -68,6 +68,9 @@
         &-DatePicker {
             margin-top: 32px;
             text-align: right;
+            .ant-space-vertical>.ant-space-item>.ant-picker>.ant-picker-input>.ant-picker-suffix {
+                color: #FF993C;
+            }
             div {
                 div {
                     width: 155px;
@@ -142,6 +145,9 @@
             margin-top: 92px;
             &-DatePicker {
                 float: left;
+                .ant-space-vertical>.ant-space-item>.ant-picker>.ant-picker-input>.ant-picker-suffix {
+                    color: #FF993C;
+                }
             }
             &-GGD {
                 float: left;

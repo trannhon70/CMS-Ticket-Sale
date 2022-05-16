@@ -1,0 +1,343 @@
+.Layout__GDV {
+    padding: 17px 32px;
+    &-Header {
+        height: 70px;
+    }
+    &-Center {
+        width: 1531px;
+        height: 963px;
+        background: #FFFFFF;
+        border-radius: 24px;
+        padding: 24px;
+        &-DSGV {
+            /* 36 bold */
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 36px;
+            line-height: 54px;
+            /* identical to box height, or 150% */
+            /* Text */
+            color: #1E0D03;
+        }
+        &-Search {
+            margin-top: 32px;
+            @include Search();
+            float: left;
+        }
+        &-XF {
+            cursor: pointer;
+            margin-left: 756px;
+            margin-top: 32px;
+            float: left;
+            /* 18 bold */
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 45px;
+            /* identical to box height, or 144% */
+            text-align: center;
+            /* Yellow/1 */
+            color: #FF993C;
+            border: 1px solid #FF993C;
+            width: 133px;
+            height: 50px;
+            background: #FFFFFF;
+            border-radius: 12px;
+        }
+        &-TGV {
+            cursor: pointer;
+            /* 18 bold */
+            margin-top: 32px;
+            float: left;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 26px;
+            /* identical to box height, or 144% */
+            width: 133px;
+            height: 50px;
+            line-height: 50px;
+            color: #FFFFFF;
+            background: #FF993C;
+            border-radius: 12px;
+            text-align: center;
+            margin-left: 24px;
+        }
+        &-TGV:hover {
+            color: white;
+        }
+        &-Table {
+            //table
+            display: grid;
+            margin-top: -295px;
+            @include Table();
+        }
+    }
+}
+
+//modal thêm gói vé 
+div {
+    .ant-modal-root {
+        .ant-modal-wrap {
+            .ant-modal {
+                .ant-modal-content {
+                    width: 758px;
+                    height: 628px;
+                    background: #FFFFFF;
+                    border-radius: 16px;
+                    .ant-modal-body {
+                        .Modal__ThemGV {
+                            /* 24 bold */
+                            font-family: 'Montserrat';
+                            font-style: normal;
+                            font-weight: 700;
+                            font-size: 24px;
+                            line-height: 30px;
+                            /* identical to box height, or 125% */
+                            text-align: center;
+                            width: 100%;
+                            /* Text */
+                            color: #1E0D03;
+                        }
+                        .Modal__TenGV {
+                            /* 16 semibold */
+                            font-family: 'Montserrat';
+                            font-style: normal;
+                            font-weight: 600;
+                            font-size: 16px;
+                            line-height: 26px;
+                            /* identical to box height, or 162% */
+                            /* Text */
+                            color: #1E0D03;
+                            margin-top: 27px;
+                        }
+                        .Modal__Input {
+                            margin-top: 5px;
+                            .ant-input {
+                                width: 361px;
+                                height: 40px;
+                                border-radius: 8px;
+                            }
+                        }
+                        .Modal__NAD {
+                            float: left;
+                            margin-top: 30px;
+                            &-Text {
+                                /* 16 semibold */
+                                font-family: 'Montserrat';
+                                font-style: normal;
+                                font-weight: 600;
+                                font-size: 16px;
+                                line-height: 26px;
+                                /* identical to box height, or 162% */
+                                /* Text */
+                                color: #1E0D03;
+                            }
+                            &-DateTime {
+                                .ant-space {
+                                    .ant-space-item {
+                                        .ant-picker {
+                                            box-sizing: border-box;
+                                            margin: 0;
+                                            padding: 0;
+                                            color: rgba(0, 0, 0, 0.85);
+                                            font-size: 14px;
+                                            font-variant: tabular-nums;
+                                            line-height: 1.5715;
+                                            list-style: none;
+                                            font-feature-settings: 'tnum', "tnum";
+                                            padding: 4px 11px 4px;
+                                            position: relative;
+                                            display: inline-flex;
+                                            align-items: center;
+                                            background: #fff;
+                                            border: 1px solid #d9d9d9;
+                                            border-radius: 8px;
+                                            transition: border 0.3s, box-shadow 0.3s;
+                                            .ant-picker-input {
+                                                .ant-picker-suffix {
+                                                    color: #FF993C;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .Modal__NHH {
+                            float: left;
+                            margin-top: 30px;
+                            margin-left: 40px;
+                            &-Text {
+                                /* 16 semibold */
+                                font-family: 'Montserrat';
+                                font-style: normal;
+                                font-weight: 600;
+                                font-size: 16px;
+                                line-height: 26px;
+                                /* identical to box height, or 162% */
+                                /* Text */
+                                color: #1E0D03;
+                            }
+                            &-DateTime {
+                                .ant-space {
+                                    .ant-space-item {
+                                        .ant-picker {
+                                            box-sizing: border-box;
+                                            margin: 0;
+                                            padding: 0;
+                                            color: rgba(0, 0, 0, 0.85);
+                                            font-size: 14px;
+                                            font-variant: tabular-nums;
+                                            line-height: 1.5715;
+                                            list-style: none;
+                                            font-feature-settings: 'tnum', "tnum";
+                                            padding: 4px 11px 4px;
+                                            position: relative;
+                                            display: inline-flex;
+                                            align-items: center;
+                                            background: #fff;
+                                            border: 1px solid #d9d9d9;
+                                            border-radius: 8px;
+                                            transition: border 0.3s, box-shadow 0.3s;
+                                            .ant-picker-input {
+                                                .ant-picker-suffix {
+                                                    color: #FF993C;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .Modal__GVAD {
+                            margin-top: 25px;
+                            /* 16 semibold */
+                            font-family: 'Montserrat';
+                            font-style: normal;
+                            font-weight: 600;
+                            font-size: 16px;
+                            line-height: 26px;
+                            /* identical to box height, or 162% */
+                            /* Text */
+                            color: #1E0D03;
+                        }
+                        .ant-checkbox-wrapper>.ant-checkbox>.ant-checkbox-inner {
+                            width: 24px;
+                            height: 24px;
+                            border-radius: 5px;
+                        }
+                        .ant-checkbox-wrapper {
+                            /* 16 medium */
+                            font-family: 'Montserrat';
+                            font-style: normal;
+                            font-weight: 500;
+                            font-size: 16px;
+                            line-height: 20px;
+                            /* identical to box height */
+                            /* Text */
+                            color: #1E0D03;
+                        }
+                        strong {
+                            /* 16 medium */
+                            font-family: 'Montserrat';
+                            font-style: normal;
+                            font-weight: 500;
+                            font-size: 16px;
+                            line-height: 20px;
+                            /* identical to box height */
+                            /* Text */
+                            color: #1E0D03;
+                            margin-left: 8px;
+                        }
+                        .Modal__TinhTrang {
+                            /* 16 semibold */
+                            font-family: 'Montserrat';
+                            font-style: normal;
+                            font-weight: 600;
+                            font-size: 16px;
+                            line-height: 26px;
+                            /* identical to box height, or 162% */
+                            /* Text */
+                            color: #1E0D03;
+                            margin-top: 32px;
+                        }
+                        .ant-select {
+                            font-size: 16px;
+                            line-height: 5px;
+                            .ant-select-arrow {
+                                color: #FF993C;
+                            }
+                        }
+                        .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+                            height: 40px;
+                        }
+                        .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+                            position: relative;
+                            background-color: #fff;
+                            border: 1px solid #d9d9d9;
+                            border-radius: 8px;
+                            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+                        }
+                        .ant-select-single.ant-select-show-arrow .ant-select-selection-item {
+                            padding: 2px 0px;
+                        }
+                        .Modal__TTBB {
+                            font-family: 'Montserrat';
+                            font-style: italic;
+                            font-weight: 400;
+                            font-size: 12px;
+                            line-height: 15px;
+                            /* identical to box height */
+                            /* Text */
+                            color: #1E0D03;
+                            opacity: 0.4;
+                            margin-top: 20px;
+                        }
+                        .Modal__Button {
+                            width: 100%;
+                            text-align: center;
+                            &-Huy {
+                                width: 160px;
+                                height: 48px;
+                                /* 18 bold */
+                                font-family: 'Montserrat';
+                                font-style: normal;
+                                font-weight: 700;
+                                font-size: 18px;
+                                line-height: 26px;
+                                /* identical to box height, or 144% */
+                                text-align: center;
+                                /* Yellow/1 */
+                                color: #FF993C;
+                                border-radius: 8px;
+                                border: 1px solid #FF993C;
+                                margin-right: 20px;
+                            }
+                            &-Luu {
+                                width: 160px;
+                                height: 48px;
+                                /* Yellow/1 */
+                                background: #FF993C;
+                                font-family: 'Montserrat';
+                                font-style: normal;
+                                font-weight: 700;
+                                font-size: 18px;
+                                line-height: 26px;
+                                /* identical to box height, or 144% */
+                                text-align: center;
+                                /* Yellow/1 */
+                                color: white;
+                                border-radius: 8px;
+                                border: 1px solid #FF993C
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

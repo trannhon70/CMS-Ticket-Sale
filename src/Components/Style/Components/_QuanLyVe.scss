@@ -27,6 +27,7 @@
             float: left;
         }
         &-LocVe {
+            cursor: pointer;
             margin-top: 32px;
             float: left;
             margin-left: 805px;
@@ -44,6 +45,7 @@
             border-radius: 7px;
         }
         &-File {
+            cursor: pointer;
             float: left;
             margin-top: -39px;
             margin-left: 916px;
@@ -60,6 +62,358 @@
             padding: 5px 10px;
             border-radius: 7px;
         }
-        &-Table {}
+        &-Table {
+            display: grid;
+            padding-top: 192px;
+            //table
+            @include Table();
+        }
+    }
+}
+
+//modal Quản lý vé
+div {
+    .ant-modal-root {
+        .ant-modal-wrap {
+            .ant-modal {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                color: rgba(0, 0, 0, 0.85);
+                font-size: 14px;
+                font-variant: tabular-nums;
+                line-height: 1.5715;
+                list-style: none;
+                font-feature-settings: 'tnum', "tnum";
+                pointer-events: none;
+                position: relative;
+                top: 300px;
+                right: 200px;
+                width: auto;
+                max-width: calc(100vw - 32px);
+                margin: 0 auto;
+                padding-bottom: 24px;
+                .ant-modal-content {
+                    width: 636px;
+                    height: 454px;
+                    background: #FFFFFF;
+                    border-radius: 10px;
+                    .ant-modal-close {
+                        .ant-modal-close-x {
+                            font-size: 0px;
+                            width: 0px;
+                            height: 0px;
+                        }
+                    }
+                    .ant-modal-body {
+                        .Layout__QuanLyVe-SDV {
+                            width: 100%;
+                            height: 30px;
+                            text-align: center;
+                            font-family: 'Montserrat';
+                            font-style: normal;
+                            font-weight: 700;
+                            font-size: 24px;
+                            line-height: 30px;
+                            /* identical to box height, or 125% */
+                            /* Text */
+                            color: #1E0D03;
+                        }
+                        .Layout__QuanLyVe-Date {
+                            margin-top: 26px;
+                            &-left {
+                                float: left;
+                                &-Text {
+                                    font-family: 'Montserrat';
+                                    font-style: normal;
+                                    font-weight: 600;
+                                    font-size: 16px;
+                                    line-height: 26px;
+                                    /* identical to box height, or 162% */
+                                    /* Text */
+                                    color: #1E0D03;
+                                }
+                                &-DatePicker {
+                                    .ant-space-vertical>.ant-space-item>.ant-picker {
+                                        border-radius: 7px;
+                                    }
+                                    .ant-space-vertical>.ant-space-item>.ant-picker>.ant-picker-input>.ant-picker-suffix {
+                                        color: #FF993C;
+                                    }
+                                }
+                            }
+                            &-Right {
+                                margin-left: 350px;
+                                &-Text {
+                                    font-family: 'Montserrat';
+                                    font-style: normal;
+                                    font-weight: 600;
+                                    font-size: 16px;
+                                    line-height: 26px;
+                                    /* identical to box height, or 162% */
+                                    /* Text */
+                                    color: #1E0D03;
+                                }
+                                &-DatePicker {
+                                    .ant-space-vertical>.ant-space-item>.ant-picker {
+                                        border-radius: 7px;
+                                    }
+                                    .ant-space-vertical>.ant-space-item>.ant-picker>.ant-picker-input>.ant-picker-suffix {
+                                        color: #FF993C;
+                                    }
+                                }
+                            }
+                        }
+                        .Layout__QuanLyVe-Radio {
+                            margin-top: 15px;
+                            &-Text {
+                                /* 16 semibold */
+                                font-family: 'Montserrat';
+                                font-style: normal;
+                                font-weight: 600;
+                                font-size: 16px;
+                                line-height: 26px;
+                                /* identical to box height, or 162% */
+                                /* Text */
+                                color: #1E0D03;
+                            }
+                            &-1 {
+                                font-family: 'Montserrat';
+                                font-style: normal;
+                                font-weight: 500;
+                                font-size: 16px;
+                                line-height: 20px;
+                                /* identical to box height */
+                                /* Text */
+                                color: #1E0D03;
+                                .ant-radio-group>.ant-radio-wrapper {
+                                    width: 139px;
+                                    font-size: 16px;
+                                    margin-top: 5px;
+                                }
+                            }
+                        }
+                        .Layout__QuanLyVe-Check {
+                            margin-top: 22px;
+                            &-Text {
+                                font-family: 'Montserrat';
+                                font-style: normal;
+                                font-weight: 600;
+                                font-size: 16px;
+                                line-height: 26px;
+                                /* identical to box height, or 162% */
+                                /* Text */
+                                color: #1E0D03;
+                            }
+                            &-In {
+                                margin-top: 10px;
+                                .ant-checkbox-group {
+                                    .ant-checkbox-group-item {
+                                        width: 187px;
+                                        height: 37px;
+                                    }
+                                }
+                            }
+                        }
+                        .Layout__QuanLyVe-LocVe {
+                            width: 100%;
+                            text-align: center;
+                            button {
+                                width: 130px;
+                                height: 40px;
+                                margin-top: 20px;
+                                font-size: 17px;
+                                border-radius: 10px;
+                                cursor: pointer;
+                                border: 1px solid #FF993C;
+                                color: #FF993C;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//date picker
+.ant-picker-dropdown {
+    left: 1466.67px;
+    top: 240.667px;
+    .ant-picker-panel-container {
+        padding: 24px 32px;
+        width: 370px;
+        height: 396px;
+        /* W */
+        background: #FFFFFF;
+        /* tabs */
+        box-shadow: 4px 4px 45px rgba(109, 46, 0, 0.35);
+        border-radius: 20px;
+        font-size: 20px;
+        div {
+            .ant-picker-date-panel {
+                width: 300px;
+                .ant-picker-header button {
+                    color: #1E0D03;
+                    line-height: 40px;
+                    background: transparent;
+                    border: 0;
+                    cursor: pointer;
+                    transition: color 0.3s;
+                }
+                .ant-picker-header>button {
+                    min-width: 2.6em;
+                    font-size: 14px;
+                    // margin-left: -18px;
+                }
+                .ant-picker-header {
+                    border-bottom: 0px solid #f0f0f0;
+                    font-family: 'Montserrat';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 18px;
+                    line-height: 26px;
+                    color: #23221F;
+                    margin-left: -31px;
+                    padding-right: 57px;
+                    button.ant-picker-header-super-prev-btn {
+                        width: 0px;
+                        height: 0px;
+                        .ant-picker-super-prev-icon::after {
+                            position: absolute;
+                            top: 4px;
+                            left: 4px;
+                            display: inline-block;
+                            width: 0px;
+                            height: 0px;
+                            border: 0 solid currentcolor;
+                            border-width: 0px 0 0 0px;
+                            content: none;
+                        }
+                        .ant-picker-super-prev-icon::before {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            display: inline-block;
+                            width: 0px;
+                            height: 0px;
+                            border: 0 solid currentcolor;
+                            border-width: 0px 0 0 0px;
+                            content: '';
+                        }
+                    }
+                    button .ant-picker-header-prev-btn {
+                        margin-left: -31px !important;
+                        .ant-picker-prev-icon {
+                            font-family: 'Montserrat';
+                            font-style: normal;
+                            font-weight: 700;
+                            font-size: 18px;
+                            line-height: 26px;
+                            color: #23221F;
+                            margin-left: -35px
+                        }
+                        &.ant-picker-prev-icon::after {
+                            width: 10px;
+                            height: 10px;
+                        }
+                    }
+                    .ant-picker-header-view {
+                        // width: 100px;
+                        .ant-picker-month-btn {
+                            font-family: 'Montserrat';
+                            font-style: normal;
+                            font-weight: 600;
+                            font-size: 24px;
+                        }
+                        .ant-picker-year-btn {
+                            font-family: 'Montserrat';
+                            font-style: normal;
+                            font-weight: 600;
+                            font-size: 24px;
+                        }
+                    }
+                    button .ant-picker-header-next-btn {
+                        margin-left: -90px !important;
+                        .ant-picker-next-icon {
+                            margin-left: -90px !important;
+                        }
+                    }
+                    button.ant-picker-header-super-next-btn {
+                        width: 0px;
+                        height: 0px;
+                        .ant-picker-super-next-icon::after {
+                            position: absolute;
+                            top: 4px;
+                            left: 4px;
+                            display: inline-block;
+                            width: 10px;
+                            height: 10px;
+                            border: 0 solid currentcolor;
+                            border-width: 0px 0 0 0px;
+                            content: '';
+                        }
+                        .ant-picker-super-next-icon::before {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            display: inline-block;
+                            width: 0px;
+                            height: 0px;
+                            border: 0 solid currentcolor;
+                            border-width: 0px 0 0 0px;
+                            content: '';
+                        }
+                    }
+                }
+                .ant-picker-body {
+                    .ant-picker-content {
+                        width: 300px;
+                        thead {
+                            tr {
+                                th {
+                                    /* 18 semibold */
+                                    font-family: 'Montserrat';
+                                    font-style: normal;
+                                    font-weight: 600;
+                                    font-size: 22px;
+                                    line-height: 28px;
+                                    /* identical to box height, or 156% */
+                                    /* Yellow / 2 */
+                                    color: #C55E00;
+                                    margin-left: 23px;
+                                }
+                            }
+                        }
+                        tbody {
+                            tr {
+                                td {
+                                    padding-top: 14px;
+                                    padding-right: 43px;
+                                    .ant-picker-cell-inner::before {
+                                        /* 16 medium */
+                                        font-family: 'Montserrat';
+                                        font-style: normal;
+                                        font-weight: 500;
+                                        font-size: 20px;
+                                        line-height: 20px;
+                                        /* identical to box height */
+                                        /* Text */
+                                        color: #23221F;
+                                    }
+                                    &.ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner {
+                                        background: #FFBA7B !important;
+                                        border-radius: 49%;
+                                        color: white;
+                                        width: 32px;
+                                        height: 28px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

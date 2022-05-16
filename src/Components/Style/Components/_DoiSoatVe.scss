@@ -1,0 +1,220 @@
+.Layout__DSV {
+    padding-top: 17px;
+    padding-bottom: 32px;
+    @include header();
+    &-CenterLeft {
+        float: left;
+        width: 1097px;
+        height: 963px;
+        background: #FFFFFF;
+        border-radius: 24px;
+        padding: 24px 24px;
+        &-Text {
+            /* 36 bold */
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 36px;
+            line-height: 54px;
+            /* identical to box height, or 150% */
+            /* Text */
+            color: #1E0D03;
+        }
+        &-Search {
+            margin-top: 32px;
+            @include Search();
+            float: left;
+        }
+        &-CDS {
+            margin-top: 32px;
+            float: left;
+            width: 174px;
+            height: 48px;
+            padding: 11px 24px;
+            background: #FF993C;
+            border-radius: 8px;
+            text-align: center;
+            color: white;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            margin-left: 438px;
+        }
+        &-Table {
+            display: grid;
+            padding-top: 20px;
+            //table
+            @include Table();
+        }
+    }
+    &-CenterRight {
+        width: 446px;
+        height: 963px;
+        background: #FFFFFF;
+        border-radius: 24px;
+        float: left;
+        margin-left: 24px;
+        padding: 24px 24px;
+        &-LV {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 30px;
+            /* identical to box height, or 125% */
+            /* Text */
+            color: #1E0D03;
+        }
+        &-TT {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 26px;
+            /* identical to box height, or 162% */
+            /* Text */
+            color: #1E0D03;
+            margin-top: 32px;
+            float: left;
+        }
+        &-Radio {
+            margin-top: 16px;
+            margin-left: 26px;
+            display: block;
+            float: left;
+            font-size: 20px;
+            .ant-radio-group>.ant-radio-wrapper {
+                margin-top: 16px;
+            }
+            .ant-radio-group>.ant-radio-wrapper>span {
+                font-size: 16px;
+            }
+        }
+        &-LV1 {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 26px;
+            /* identical to box height, or 162% */
+            /* Text */
+            color: #1E0D03;
+            float: left;
+            margin-top: 27px;
+        }
+        &-VC {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 26px;
+            /* identical to box height */
+            /* Text */
+            color: #1E0D03;
+            float: left;
+            margin-left: 108px;
+            margin-top: 27px;
+        }
+        &-TN {
+            /* 16 semibold */
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 26px;
+            /* identical to box height, or 162% */
+            /* Text */
+            color: #1E0D03;
+            float: left;
+            margin-top: 24px;
+        }
+        &-DatePicker {
+            float: left;
+            margin-left: 105px;
+            margin-top: 24px;
+            .ant-space>.ant-space-item>.ant-picker {
+                width: 192px;
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                color: rgba(0, 0, 0, 0.85);
+                font-size: 14px;
+                font-variant: tabular-nums;
+                line-height: 1.5715;
+                list-style: none;
+                font-feature-settings: 'tnum', "tnum";
+                padding: 4px 11px 4px;
+                position: relative;
+                display: inline-flex;
+                align-items: center;
+                background: #E0E0E0;
+                border: 1px solid #d9d9d9;
+                border-radius: 8px;
+                transition: border 0.3s, box-shadow 0.3s;
+                height: 40px;
+            }
+        }
+        &-DN {
+            /* 16 semibold */
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 26px;
+            /* identical to box height, or 162% */
+            /* Text */
+            color: #1E0D03;
+            float: left;
+            margin-top: 34px;
+        }
+        &-DatePickerDN {
+            float: left;
+            margin-left: 97px;
+            margin-top: 24px;
+            .ant-space>.ant-space-item>.ant-picker {
+                width: 192px;
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                color: rgba(0, 0, 0, 0.85);
+                font-size: 14px;
+                font-variant: tabular-nums;
+                line-height: 1.5715;
+                list-style: none;
+                font-feature-settings: 'tnum', "tnum";
+                padding: 4px 11px 4px;
+                position: relative;
+                display: inline-flex;
+                align-items: center;
+                background: #fff;
+                border: 1px solid #d9d9d9;
+                border-radius: 8px;
+                transition: border 0.3s, box-shadow 0.3s;
+                height: 40px;
+            }
+            .ant-space>.ant-space-item>.ant-picker>.ant-picker-input>.ant-picker-suffix {
+                color: #FF993C;
+            }
+        }
+        &-Button {
+            margin-top: 40px;
+            width: 100%;
+            text-align: center;
+        }
+        &-Button>.ant-btn {
+            height: 40px;
+            width: 150px;
+            border: 1px solid #FF993C;
+            border-radius: 10px;
+            /* 18 bold */
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            /* identical to box height, or 144% */
+            /* Yellow/1 */
+            color: #FF993C;
+        }
+    }
+}

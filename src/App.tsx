@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
 import DoiSoatVe from './Components/Pages/DoiSoatVe/DoiSoatVe';
 import GoiDichVu from './Components/Pages/GoiDichVu/GoiDichVu';
+import ThemGoiDichVu from './Components/Pages/GoiDichVu/ThemGoiDichVu';
 import QuanLyVe from './Components/Pages/QuanLyVe/QuanLyVe';
 import TrangChu from './Components/Pages/TrangChu/TrangChu';
 import Sidebar from './Components/Template/MenuLeft/Sidebar';
@@ -16,7 +17,9 @@ function App() {
                     <Route path='/' element={< TrangChu />} />
                     <Route path='/quanlyve' element={< QuanLyVe />} />
                     <Route path='/goidichvu' element={< GoiDichVu />} />
-                    <Route path='/doisoatve' element={< DoiSoatVe />} />
+                    <Route path='/doisoatve' element={< DoiSoatVe />} >
+                        {/* <Route path='/goidichvu/themdichvu' element={<ThemGoiDichVu />} />   */}
+                    </Route>
               </Route>
             </Routes>
         </BrowserRouter>
