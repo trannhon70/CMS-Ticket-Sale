@@ -8,6 +8,7 @@ import Avata from '../../Template/Avata/Avata';
 import { DatePicker, Space } from 'antd';
 import moment from 'moment';
 import { Pie } from '@ant-design/plots';
+import { TrangChuProps } from '../../../PropsComponent/TrangChuProp';
 
 function onChange(date: any, dateString: any) {
     console.log(date, dateString);
@@ -45,35 +46,7 @@ const DemoArea = () => {
             "timePeriod": "CN",
             "value": 1.52
         },
-        //   {
-        //     "timePeriod": "Thứ 2",
-        //     "value": 2.67
-        //   },
-        //   {
-        //     "timePeriod": "Thứ 3",
-        //     "value": 1.84
-        //   },
-        //   {
-        //     "timePeriod": "Thứ 4",
-        //     "value": 2.07
-        //   },
-        //   {
-        //     "timePeriod": "Thứ 5",
-        //     "value": 2.39
-        //   },
-        //   {
-        //     "timePeriod": "Thứ 6",
-        //     "value": 3.71
-        //   },
-        //   {
-        //     "timePeriod": "Thứ 7",
-        //     "value": 3.03
-        //   },
-        //   {
-        //     "timePeriod": "CN",
-        //     "value": 3.33
-        //   },
-
+    
     ];
 
     const config = {
@@ -204,10 +177,7 @@ const GoiSuKien:any = () => {
 
     return <Pie {...config} />;
 };
-const TrangChu = () => {
-
-
-
+const TrangChu = ({name}: TrangChuProps) => {
 
     return (
         <div className='Layout__TrangChu'>
@@ -215,7 +185,7 @@ const TrangChu = () => {
 
             <div className='Layout__TrangChu-Center' >
                 <div className='Layout__TrangChu-Center-Thongke' style={{ color: '#FF993C' }}>
-                    Thống kê
+                    {name.title}
                 </div>
                 <div className='Layout__TrangChu-Center-DoanhThu'>
                     Doanh thu

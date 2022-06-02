@@ -1,5 +1,5 @@
 import { Input, Table, Modal, Button, Form, Space, DatePicker, TimePicker, Checkbox, Select } from 'antd';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AiOutlineSearch, AiOutlineMail } from "react-icons/ai";
 import { BiBell } from "react-icons/bi";
 import { Link } from 'react-router-dom';
@@ -9,13 +9,25 @@ import mauDo from "../../../Assets/Image/do.png";
 import xanh from "../../../Assets/Image/xanh.png";
 import sao from "../../../Assets/Image/sao.png";
 import { CSVLink, CSVDownload } from "react-csv";
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllGoiDichVu } from '../../State/Action-Creators/GoiDichVuCreators';
+import { State } from '../../State';
+import { GoiDichVu } from '../../State/Actions/GoiDichVuAction';
+import { GoiDichVuProps } from '../../../PropsComponent/GoiDichVuProp';
 
 const { Search } = Input;
 const { Option } = Select;
 
 
 
-const GoiDichVu = () => {
+const DanhSachGoiDichVu = ({name}: GoiDichVuProps) => {
+  //lấy dữ liệu từ firebase 
+  const dispatch = useDispatch();
+  useEffect(() =>{
+    dispatch(getAllGoiDichVu())
+  },[])
+  const {goiDichVuList} = useSelector((state: State)=> state.goidichvu);
+  const data:GoiDichVu[] = goiDichVuList
   //modal Thêm gói vé
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -32,106 +44,84 @@ const GoiDichVu = () => {
   };
 
   //modal cập nhật gói vé 
-  const [capNhat, setCapNhat] = useState(true);
-  const showModalCapNhat = () =>{
+  const [capNhat, setCapNhat] = useState(false);
+  const showModalCapNhat = () => {
     setCapNhat(true);
   }
-  const handleOKCapNhat = () =>{
+  const handleOKCapNhat = () => {
     setCapNhat(false);
   }
-  const handelCancelCapNhat = () =>{
+  const handelCancelCapNhat = () => {
     setCapNhat(false)
   }
   //table
-const columns = [
-  {
-    title: 'STT',
-    dataIndex: 'STT',
-    key: 'STTKey',
+  const columns = [
+    {
+      title: 'STT',
+      dataIndex: 'STT',
+      key: 'STTKey',
 
-  },
-  {
-    title: 'Mã gói',
-    dataIndex: 'MaGoi',
-    key: 'MaGoiKey',
-  },
-  {
-    title: 'Tên gói vé',
-    dataIndex: 'TenGoiVe',
-    key: 'TenGoiVeKey',
-  },
-  {
-    title: 'Ngày áp dụng',
-    dataIndex: 'NgayApDung',
-    key: 'NgayApDungKey',
-  },
-  {
-    title: 'Ngày hết hạn',
-    dataIndex: 'NgayHetHan',
-    key: 'NgayHetHankey',
-  },
-  {
-    title: 'Giá vé (VNĐ/vé)',
-    dataIndex: 'GiaVe',
-    key: 'GiaVeKey',
+    },
+    {
+      title: 'Mã gói',
+      dataIndex: 'MaGoi',
+      key: 'MaGoiKey',
+    },
+    {
+      title: 'Tên gói vé',
+      dataIndex: 'TenGoiVe',
+      key: 'TenGoiVeKey',
+    },
+    {
+      title: 'Ngày áp dụng',
+      dataIndex: 'NgayApDung',
+      key: 'NgayApDungKey',
+    },
+    {
+      title: 'Ngày hết hạn',
+      dataIndex: 'NgayHetHan',
+      key: 'NgayHetHankey',
+    },
+    {
+      title: 'Giá vé (VNĐ/vé)',
+      dataIndex: 'GiaVe',
+      key: 'GiaVeKey',
 
-  },
-  {
-    title: 'Giá Combo (VNĐ/Combo)',
-    dataIndex: 'GiaVeCB',
-    key: 'GiaVeCBKey',
+    },
+    {
+      title: 'Giá Combo (VNĐ/Combo)',
+      dataIndex: 'GiaVeCB',
+      key: 'GiaVeCBKey',
 
-  },
-  {
-    title: 'Tình trạng',
-    dataIndex: 'TinhTrang',
-    key: 'TinhTrangKey',
-    render: (TinhTrang: any) => {
-      if (TinhTrang === 'Đang áp dụng') {
-        return (
-          <div style={{ width: '129px', height: '31px', background: '#DEF7E0', border: '1px solid #03AC00', borderRadius: '4px', textAlign: 'center', color: '#03AC00', lineHeight: '28px' }} > <img src={xanh} style={{ marginRight: '8px' }} /> {TinhTrang} </div>
-        )
+    },
+    {
+      title: 'Tình trạng',
+      dataIndex: 'TinhTrang',
+      key: 'TinhTrangKey',
+      render: (TinhTrang: any) => {
+        if (TinhTrang === 'Đang áp dụng') {
+          return (
+            <div style={{ width: '129px', height: '31px', background: '#DEF7E0', border: '1px solid #03AC00', borderRadius: '4px', textAlign: 'center', color: '#03AC00', lineHeight: '28px' }} > <img src={xanh} style={{ marginRight: '8px' }} /> {TinhTrang} </div>
+          )
+        }
+        else if (TinhTrang === 'Tắt') {
+          return (
+            <div style={{ width: '59px', height: '31px', background: '#F8EBE8', border: '1px solid #FD5959', borderRadius: '4px', textAlign: 'center', color: '#FD5959', lineHeight: '28px' }} > <img src={mauDo} style={{ marginRight: '8px' }} /> {TinhTrang} </div>
+          )
+        }
       }
-      else if (TinhTrang === 'Tắt') {
-        return (
-          <div style={{ width: '59px', height: '31px', background: '#F8EBE8', border: '1px solid #FD5959', borderRadius: '4px', textAlign: 'center', color: '#FD5959', lineHeight: '28px' }} > <img src={mauDo} style={{ marginRight: '8px' }} /> {TinhTrang} </div>
-        )
-      }
-    }
 
-  },
-  {
-    title: '',
-    dataIndex: 'STT',
-    key: 'GiaVeCBKey',
-    render: (STT: any) => <div onClick={showModalCapNhat} style={{ color: '#FF993C', cursor:'pointer' }}> < AiOutlineForm style={{ color: '#FF993C', fontSize: '16px' }} /> <span style={{ fontSize: '16px' }}>Cập nhật</span> </div>
-  },
+    },
+    {
+      title: '',
+      dataIndex: 'STT',
+      key: 'GiaVeCBKey',
+      render: (STT: any) => <div onClick={showModalCapNhat} style={{ color: '#FF993C', cursor: 'pointer' }}> < AiOutlineForm style={{ color: '#FF993C', fontSize: '16px' }} /> <span style={{ fontSize: '16px' }}>Cập nhật</span> </div>
+    },
 
-];
+  ];
 
-const data = [
-  {
-    STT: '1',
-    MaGoi: 'SADSADSAFAS',
-    TenGoiVe: 'Gói gia đình',
-    NgayApDung: '14/4/2021 8:00:00',
-    NgayHetHan: '14/4/2021 8:00:00',
-    GiaVe: '90000 VNĐ',
-    GiaVeCB: '360.000 VNĐ/4 vé',
-    TinhTrang: 'Đang áp dụng'
-  },
-  {
-    STT: '2',
-    MaGoi: 'SADSADSAFAS',
-    TenGoiVe: 'Gói gia đình',
-    NgayApDung: '14/4/2021 8:00:00',
-    NgayHetHan: '14/4/2021 8:00:00',
-    GiaVe: '90000 VNĐ',
-    GiaVeCB: '360.000 VNĐ/4 vé',
-    TinhTrang: 'Tắt'
-  },
-
-];
+  
   return (
     <div className='Layout__GDV'>
       <div className='Layout__GDV-Header'>
@@ -146,14 +136,14 @@ const data = [
         </div>
       </div>
       <div className='Layout__GDV-Center'>
-        <div className='Layout__GDV-Center-DSGV'>Danh sách gói vé</div>
+        <div className='Layout__GDV-Center-DSGV'>{name.danhSach}</div>
         <div className='Layout__GDV-Center-Search'>
           <Search style={{ width: '437px', height: '50px' }} placeholder=" Tìm bằng số vé " suffix={< AiOutlineSearch />} enterButton={null} />
         </div>
         <CSVLink data={data} >
-        <div className='Layout__GDV-Center-XF'>
-          Xuất file (.csv)
-        </div>
+          <div className='Layout__GDV-Center-XF'>
+            Xuất file (.csv)
+          </div>
         </CSVLink>
         <div onClick={showModal} className="Layout__GDV-Center-TGV">
           Thêm gói vé
@@ -212,10 +202,10 @@ const data = [
             <Option value="Đang áp dụng">Đang áp dụng</Option>
             <Option value="Tắt">Tắt</Option>
           </Select>
-          <div className='Modal__TTBB' ><img src={sao} style={{ marginRight:'4px' }} />là thông tin bắt buộc</div>
+          <div className='Modal__TTBB' ><img src={sao} style={{ marginRight: '4px' }} />là thông tin bắt buộc</div>
           <div className='Modal__Button'>
-          <Button className='Modal__Button-Huy' >Hủy</Button>
-          <Button className='Modal__Button-Luu' >Lưu</Button>
+            <Button className='Modal__Button-Huy' >Hủy</Button>
+            <Button className='Modal__Button-Luu' >Lưu</Button>
           </div>
         </Form>
       </Modal>
@@ -224,14 +214,19 @@ const data = [
       <Modal footer={null} visible={capNhat} onOk={handleOKCapNhat} onCancel={handelCancelCapNhat}>
         <Form>
           <div className='Modal__ThemGV'>Cập nhật thông tin gói vé</div>
-          <div className='Modal__TenGV'>Tên gói vé <img src={sao} /> </div>
-          <div className='Modal__Input1' style={{ width:'200px' }}>
-            <Input placeholder="PKJKSAKD" />
+          <div style={{ float: 'left' }}>
+            <div className='Modal__TenGV'>Tên gói vé <img src={sao} /> </div>
+            <div className='Modal__Input1' style={{ width: '250px' }}>
+              <Input placeholder="PKJKSAKD" style={{ borderRadius:'8px' }}/>
+            </div>
           </div>
-          <div className='Modal__TenGV' style={{ float:'left' }}>Tên sự kiện </div>
-          <div className='Modal__Input2' style={{ width:'200px' }} >
-            <Input placeholder="Hội chợ triển lãm hàng tiêu dùng 2021" />
+          <div style={{ float: 'left' , marginLeft:'86px' }}>
+            <div className='Modal__TenGV'>Tên sự kiện </div>
+            <div className='Modal__Input2' style={{ width: '370px' }} >
+              <Input placeholder="Hội chợ triển lãm hàng tiêu dùng 2021" style={{ borderRadius:'8px' }} />
+            </div>
           </div>
+          <div style={{ clear:'both' }}></div>
           <div className='Modal__NAD'>
             <div className='Modal__NAD-Text'>Ngày áp dụng</div>
             <div className='Modal__NAD-DateTime'>
@@ -270,10 +265,10 @@ const data = [
             <Option value="Đang áp dụng">Đang áp dụng</Option>
             <Option value="Tắt">Tắt</Option>
           </Select>
-          <div className='Modal__TTBB' ><img src={sao} style={{ marginRight:'4px' }} />là thông tin bắt buộc</div>
+          <div className='Modal__TTBB' ><img src={sao} style={{ marginRight: '4px' }} />là thông tin bắt buộc</div>
           <div className='Modal__Button'>
-          <Button className='Modal__Button-Huy' >Hủy</Button>
-          <Button className='Modal__Button-Luu' >Lưu</Button>
+            <Button className='Modal__Button-Huy' >Hủy</Button>
+            <Button className='Modal__Button-Luu' >Lưu</Button>
           </div>
         </Form>
       </Modal>
@@ -282,4 +277,4 @@ const data = [
   )
 }
 
-export default GoiDichVu
+export default DanhSachGoiDichVu

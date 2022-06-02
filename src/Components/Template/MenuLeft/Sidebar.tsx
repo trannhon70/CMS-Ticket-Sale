@@ -32,11 +32,11 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-    getItem(<Link to={'/'} >Trang chủ</Link>, '1', <BiHomeAlt style={{ fontSize: '21px' }} />),
-    getItem(<Link to={'/quanlyve'} >Quản lý vé</Link>, '2', <HiOutlineTicket style={{ fontSize: '21px', transform: 'rotate(180deg)' }} />),
-    getItem(<Link to={'/doisoatve'} >Đổi soát vé</Link>, '3', <AiOutlineContainer style={{ fontSize: '21px' }} />),
+    getItem(<Link style={{ textDecoration:'none' }} to={'/'} >Trang chủ</Link>, '1', <BiHomeAlt style={{ fontSize: '21px' }} />),
+    getItem(<Link style={{ textDecoration:'none' }} to={'/quanlyve'} >Quản lý vé</Link>, '2', <HiOutlineTicket style={{ fontSize: '21px', transform: 'rotate(180deg)' }} />),
+    getItem(<Link style={{ textDecoration:'none' }} to={'/doisoatve'} >Đổi soát vé</Link>, '3', <AiOutlineContainer style={{ fontSize: '21px' }} />),
     getItem(<span style={{ color: '#1E0D03', fontFamily: 'Montserrat', fontStyle: 'normal', fontWeight: 500, fontSize: '18px', lineHeight: '26px' }}>Cài đặt</span>, 'sub1', <SettingOutlined style={{ fontSize: '21px' }} />, [
-        getItem(<Link to={'/goidichvu'} style={{ paddingLeft: '26px' }} >Gói dịch vụ</Link>, '4')]),
+        getItem(<Link  to={'/goidichvu'} style={{ paddingLeft: '26px',textDecoration:'none' }} >Gói dịch vụ</Link>, '4')]),
 
 ];
 const Sidebar = () => {

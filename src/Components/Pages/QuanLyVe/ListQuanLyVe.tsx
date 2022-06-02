@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Input, DatePicker } from 'antd';
 import { AiOutlineSearch } from "react-icons/ai";
 import Avata from '../../Template/Avata/Avata';
@@ -14,6 +14,15 @@ import moment from 'moment';
 import { Modal, Button } from 'antd';
 import { Checkbox } from 'antd';
 import { CSVLink, CSVDownload } from "react-csv";
+import { useDispatch, useSelector } from 'react-redux';
+
+import {  QuanLyVe } from '../../State/Actions/QuanLyVeAction';
+import { State } from '../../State';
+import { getAllQuanLyVe } from '../../State/Action-Creators/QuanLyVeCreators';
+import { QuanLyVeProps } from '../../../PropsComponent/QuanLyVeProp';
+
+
+
 //check box
 function onChange1(checkedValues: any) {
   console.log('checked = ', checkedValues);
@@ -119,129 +128,20 @@ const columns = [
   },
 ];
 
-const data = [
-  {
-    STT: '1',
-    code: 'ALTFCHJU',
-    SoVe: '3213123212',
-    TinhTrang: 'Đã sử dụng',
-    NgaySuDung: '14/4/2021',
-    NgayXuatVe: '12/12/2021',
-    check: 'Cổng 1'
-  },
-  {
-    STT: '2',
-    code: 'ALTFCHJU',
-    SoVe: '3213123212',
-    TinhTrang: 'Chưa sử dụng',
-    NgaySuDung: '14/4/2021',
-    NgayXuatVe: '12/12/2021',
-    check: 'Cổng 1'
-  },
-  {
-    STT: '3',
-    code: 'ALTFCHJU',
-    SoVe: '3213123212',
-    TinhTrang: 'Hết hạn',
-    NgaySuDung: '14/4/2021',
-    NgayXuatVe: '12/12/2021',
-    check: 'Cổng 1'
-  },
-  {
-    STT: '4',
-    code: 'ALTFCHJU',
-    SoVe: '3213123212',
-    TinhTrang: 'Đã sử dụng',
-    NgaySuDung: '14/4/2021',
-    NgayXuatVe: '12/12/2021',
-    check: 'Cổng 2'
-  },
-  {
-    STT: '5',
-    code: 'ALTFCHJU',
-    SoVe: '3213123212',
-    TinhTrang: 'Đã sử dụng',
-    NgaySuDung: '14/4/2021',
-    NgayXuatVe: '12/12/2021',
-    check: 'Cổng 3'
-  },
-  {
-    STT: '6',
-    code: 'ALTFCHJU',
-    SoVe: '3213123212',
-    TinhTrang: 'Hết hạn',
-    NgaySuDung: '14/4/2021',
-    NgayXuatVe: '12/12/2021',
-    check: 'Cổng 1'
-  },
-  {
-    STT: '7',
-    code: 'ALTFCHJU',
-    SoVe: '3213123212',
-    TinhTrang: 'Hết hạn',
-    NgaySuDung: '14/4/2021',
-    NgayXuatVe: '12/12/2021',
-    check: 'Cổng 1'
-  },
-  {
-    STT: '8',
-    code: 'ALTFCHJU',
-    SoVe: '3213123212',
-    TinhTrang: 'Hết hạn',
-    NgaySuDung: '14/4/2021',
-    NgayXuatVe: '12/12/2021',
-    check: 'Cổng 1'
-  },
-  {
-    STT: '9',
-    code: 'ALTFCHJU',
-    SoVe: '3213123212',
-    TinhTrang: 'Hết hạn',
-    NgaySuDung: '14/4/2021',
-    NgayXuatVe: '12/12/2021',
-    check: 'Cổng 1'
-  },
-  {
-    STT: '10',
-    code: 'ALTFCHJU',
-    SoVe: '3213123212',
-    TinhTrang: 'Hết hạn',
-    NgaySuDung: '14/4/2021',
-    NgayXuatVe: '12/12/2021',
-    check: 'Cổng 1'
-  },
-  {
-    STT: '11',
-    code: 'ALTFCHJU',
-    SoVe: '3213123212',
-    TinhTrang: 'Hết hạn',
-    NgaySuDung: '14/4/2021',
-    NgayXuatVe: '12/12/2021',
-    check: 'Cổng 1'
-  },
-  {
-    STT: '12',
-    code: 'ALTFCHJU',
-    SoVe: '3213123212',
-    TinhTrang: 'Hết hạn',
-    NgaySuDung: '14/4/2021',
-    NgayXuatVe: '12/12/2021',
-    check: 'Cổng 1'
-  },
-  {
-    STT: '13',
-    code: 'ALTFCHJU',
-    SoVe: '3213123212',
-    TinhTrang: 'Hết hạn',
-    NgaySuDung: '14/4/2021',
-    NgayXuatVe: '12/12/2021',
-    check: 'Cổng 1'
-  },
-];
+
+//truyền props
 
 
 const { Search } = Input;
-const QuanLyVe = () => {
+const ListQuanLyVe = ({name}:QuanLyVeProps) => {
+
+  //lấy dữ liệu từ firebase
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(getAllQuanLyVe())
+  },[])
+  const {quanLyVeList} = useSelector((state: State) => state.QuanLyVe)
+  const data:QuanLyVe [] = quanLyVeList
   //modal radio
   const [value, setValue] = React.useState(1);
 
@@ -268,7 +168,7 @@ const QuanLyVe = () => {
     <div className='Layout__QuanLyVe'>
       <Avata />
       <div className='Layout__QuanLyVe-Center'>
-        <div className='Layout__QuanLyVe-Center-DanhSach'>Danh sách vé</div>
+        <div className='Layout__QuanLyVe-Center-DanhSach'>{name.danhSach}</div>
         <div className='Layout__QuanLyVe-Center-Search'>
           <Search style={{ width: '437px', height: '50px' }} placeholder=" Tìm bằng số vé " suffix={< AiOutlineSearch />} enterButton={null} />
         </div>
@@ -359,4 +259,5 @@ const QuanLyVe = () => {
   )
 }
 
-export default QuanLyVe
+export default ListQuanLyVe
+

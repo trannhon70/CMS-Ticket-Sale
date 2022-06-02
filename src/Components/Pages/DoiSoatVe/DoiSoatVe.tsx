@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Avata from './../../Template/Avata/Avata';
 import { AiOutlineSearch } from "react-icons/ai";
-import { Table, Tag, Space, Input, Radio, DatePicker, Button } from 'antd';
+import { Table, Space, Input, Radio, DatePicker, Button } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllDoiSoatVe } from '../../State/Action-Creators/DoiSoatVeCreators';
+import { State } from '../../State';
+import { DoiSoatVe } from '../../State/Actions/DoiSoatVeAction';
+import { DoiSoatVeProps } from '../../../PropsComponent/DoiSoatVeProp';
 
 const { Search } = Input;
 
@@ -41,123 +46,17 @@ const columns = [
   },
 ];
 
-const data = [
-  {
-    STT: '1',
-    SoVe: 'SADSADSAFAS',
-    NgaySuDung: '14/04/2021',
-    TenLoaiVe: 'Vé cổng',
-    check: 'cổng 1',
-    ChuaDoiSoat: 'Chưa đối soát'
-  },
-  {
-    STT: '2',
-    SoVe: 'SADSADSAFAS',
-    NgaySuDung: '14/04/2021',
-    TenLoaiVe: 'Vé cổng',
-    check: 'cổng 1',
-    ChuaDoiSoat: 'Chưa đối soát'
-  },
-  {
-    STT: '3',
-    SoVe: 'SADSADSAFAS',
-    NgaySuDung: '14/04/2021',
-    TenLoaiVe: 'Vé cổng',
-    check: 'cổng 1',
-    ChuaDoiSoat: 'Chưa đối soát'
-  },
-  {
-    STT: '4',
-    SoVe: 'SADSADSAFAS',
-    NgaySuDung: '14/04/2021',
-    TenLoaiVe: 'Vé cổng',
-    check: 'cổng 1',
-    ChuaDoiSoat: 'Chưa đối soát'
-  },
-  {
-    STT: '5',
-    SoVe: 'SADSADSAFAS',
-    NgaySuDung: '14/04/2021',
-    TenLoaiVe: 'Vé cổng',
-    check: 'cổng 1',
-    ChuaDoiSoat: 'Chưa đối soát'
-  },
-  {
-    STT: '6',
-    SoVe: 'SADSADSAFAS',
-    NgaySuDung: '14/04/2021',
-    TenLoaiVe: 'Vé cổng',
-    check: 'cổng 1',
-    ChuaDoiSoat: 'Chưa đối soát'
-  },
 
-  {
-    STT: '7',
-    SoVe: 'SADSADSAFAS',
-    NgaySuDung: '14/04/2021',
-    TenLoaiVe: 'Vé cổng',
-    check: 'cổng 1',
-    ChuaDoiSoat: 'Chưa đối soát'
-  },
-  {
-    STT: '8',
-    SoVe: 'SADSADSAFAS',
-    NgaySuDung: '14/04/2021',
-    TenLoaiVe: 'Vé cổng',
-    check: 'cổng 1',
-    ChuaDoiSoat: 'Chưa đối soát'
-  },
-  {
-    STT: '9',
-    SoVe: 'SADSADSAFAS',
-    NgaySuDung: '14/04/2021',
-    TenLoaiVe: 'Vé cổng',
-    check: 'cổng 1',
-    ChuaDoiSoat: 'Chưa đối soát'
-  },
-  {
-    STT: '10',
-    SoVe: 'SADSADSAFAS',
-    NgaySuDung: '14/04/2021',
-    TenLoaiVe: 'Vé cổng',
-    check: 'cổng 1',
-    ChuaDoiSoat: 'Chưa đối soát'
-  },
-  {
-    STT: '11',
-    SoVe: 'SADSADSAFAS',
-    NgaySuDung: '14/04/2021',
-    TenLoaiVe: 'Vé cổng',
-    check: 'cổng 1',
-    ChuaDoiSoat: 'Chưa đối soát'
-  },
-  {
-    STT: '12',
-    SoVe: 'SADSADSAFAS',
-    NgaySuDung: '14/04/2021',
-    TenLoaiVe: 'Vé cổng',
-    check: 'cổng 1',
-    ChuaDoiSoat: 'Chưa đối soát'
-  },
-  {
-    STT: '13',
-    SoVe: 'SADSADSAFAS',
-    NgaySuDung: '14/04/2021',
-    TenLoaiVe: 'Vé cổng',
-    check: 'cổng 1',
-    ChuaDoiSoat: 'Chưa đối soát'
-  },
-  {
-    STT: '14',
-    SoVe: 'SADSADSAFAS',
-    NgaySuDung: '14/04/2021',
-    TenLoaiVe: 'Vé cổng',
-    check: 'cổng 1',
-    ChuaDoiSoat: 'Chưa đối soát'
-  },
+const DoiSoatVeDS = ({name}: DoiSoatVeProps) => {
+  // lấy danh sách đối soát từ firebase
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getAllDoiSoatVe());
 
-];
-const DoiSoatVe = () => {
+  }, [])
+  const { doiSoatVeList } = useSelector((state: State) => state.doiSoatVe)
+  const data: DoiSoatVe[] = doiSoatVeList;
+
   //Radio 
   const [value, setValue] = React.useState('Tất cả');
 
@@ -170,7 +69,7 @@ const DoiSoatVe = () => {
       <Avata />
       <div className='Layout__DSV-CenterLeft'>
         <div className='Layout__DSV-CenterLeft-Text'>
-          Đối soát vé
+          {name.doiSoat}
         </div>
         <div className='Layout__DSV-CenterLeft-Search'>
           <Search style={{ width: '437px', height: '50px' }} placeholder=" Tìm bằng số vé " suffix={< AiOutlineSearch />} enterButton={null} />
@@ -181,14 +80,15 @@ const DoiSoatVe = () => {
           <Table
             rowKey={`STT`} pagination={{ pageSize: 12 }}
             columns={columns}
-            dataSource={data} />
+            dataSource={data}
+          />
         </div>
       </div>
 
       {/* Right */}
       <div className='Layout__DSV-CenterRight'>
         <div className='Layout__DSV-CenterRight-LV'>
-          Lọc vé
+          {name.locVe}
         </div><br />
         <div className='Layout__DSV-CenterRight-TT'>Tình trạng đối soát</div>
         <div className='Layout__DSV-CenterRight-Radio'>
@@ -235,7 +135,7 @@ const DoiSoatVe = () => {
         </div>
         <div style={{ clear: 'both' }}></div>
         <div className='Layout__DSV-CenterRight-Button'>
-        <Button  >Lọc</Button>
+          <Button  >Lọc</Button>
         </div>
       </div>
 
@@ -244,4 +144,4 @@ const DoiSoatVe = () => {
   )
 }
 
-export default DoiSoatVe
+export default DoiSoatVeDS
